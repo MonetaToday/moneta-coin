@@ -49,8 +49,12 @@ func (m Minter) NextInflationRate(params Params, bondedRatio sdk.Dec) sdk.Dec {
 	// 7% and 20%.
 
 	// (1 - bondedRatio/GoalBonded) * InflationRateChange
+	goalBonded := sdk.OneDec()
+	if (!params.GoalBonded.IsZero()) {
+		goalBonded = params.GoalBonded
+	}
 	inflationRateChangePerYear := sdk.OneDec().
-		Sub(bondedRatio.Quo(params.GoalBonded)).
+		Sub(bondedRatio.Quo(goalBonded)).
 		Mul(params.InflationRateChange)
 	inflationRateChange := inflationRateChangePerYear.Quo(sdk.NewDec(int64(params.BlocksPerYear)))
 
