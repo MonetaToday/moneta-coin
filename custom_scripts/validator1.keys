@@ -1,5 +1,0 @@
-- address: cosmos1t58kpumz3k8rr6tqlpfhtcdc7fuqtj26xsgyd6
-  name: validator1
-  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AvMU/5BigARPSBw0M2NNYscS05qmBRgBxB3pG1fCHtSC"}'
-  type: local
-

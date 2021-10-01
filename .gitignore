@@ -54,4 +54,4 @@ dependency-graph.png
 *.out
 *.synctex.gz
 
-./custom_scripts/validator*
+./custom_scripts/validator1.keys
