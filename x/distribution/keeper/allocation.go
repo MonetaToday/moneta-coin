@@ -25,10 +25,18 @@ func (k Keeper) AllocateTokens(
 	// (and distributed to the previous proposer)
 	feeCollector := k.authKeeper.GetModuleAccount(ctx, k.feeCollectorName)
 	feesCollectedInt := k.bankKeeper.GetAllBalances(ctx, feeCollector.GetAddress())
-	feesCollected := sdk.NewDecCoinsFromCoins(feesCollectedInt...)
+	dividedFeesCollectedInt := sdk.NormalizeCoins(sdk.NewDecCoinsFromCoins(feesCollectedInt...).QuoDec(sdk.NewDec(2)))
+	feesCollected := sdk.NewDecCoinsFromCoins(feesCollectedInt.Sub(dividedFeesCollectedInt)...)
+
+	if !dividedFeesCollectedInt.IsZero() {
+		err := k.bankKeeper.BurnCoins(ctx, k.feeCollectorName, dividedFeesCollectedInt)
+		if err != nil {
+			panic(err)
+		}
+	}
 
 	// transfer collected fees to the distribution module account
-	err := k.bankKeeper.SendCoinsFromModuleToModule(ctx, k.feeCollectorName, types.ModuleName, feesCollectedInt)
+	err := k.bankKeeper.SendCoinsFromModuleToModule(ctx, k.feeCollectorName, types.ModuleName, feesCollectedInt.Sub(dividedFeesCollectedInt))
 	if err != nil {
 		panic(err)
 	}
