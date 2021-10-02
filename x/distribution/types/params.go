@@ -25,7 +25,7 @@ func ParamKeyTable() paramtypes.KeyTable {
 // DefaultParams returns default distribution parameters
 func DefaultParams() Params {
 	return Params{
-		CommunityTax:        sdk.NewDecWithPrec(2, 2), // 2%
+		CommunityTax:        sdk.NewDecWithPrec(0, 2), // 0%
 		BaseProposerReward:  sdk.NewDecWithPrec(1, 2), // 1%
 		BonusProposerReward: sdk.NewDecWithPrec(4, 2), // 4%
 		WithdrawAddrEnabled: true,
