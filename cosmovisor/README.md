@@ -174,7 +174,7 @@ Compile the `simd` binary:
 make build
 ```
 
-Reset `~/.simapp` (never do this in a production environment):
+Reset `~/.moneta` (never do this in a production environment):
 
 ```
 ./build/simd unsafe-reset-all
@@ -196,7 +196,7 @@ Initialize the node and overwrite any previous genesis file (never do this in a 
 ./build/simd init test --chain-id test --overwrite
 ```
 
-Set the minimum gas price to `0stake` in `~/.simapp/config/app.toml`:
+Set the minimum gas price to `0stake` in `~/.moneta/config/app.toml`:
 
 ```
 minimum-gas-prices = "0stake"
@@ -218,7 +218,7 @@ Set the required environment variables:
 
 ```
 export DAEMON_NAME=simd
-export DAEMON_HOME=$HOME/.simapp
+export DAEMON_HOME=$HOME/.moneta
 ```
 
 Set the optional environment variable to trigger an automatic restart:
@@ -237,7 +237,7 @@ cp ./build/simd $DAEMON_HOME/cosmovisor/genesis/bin
 For the sake of this demonstration, amend `voting_period` in `genesis.json` to a reduced time of 20 seconds (`20s`):
 
 ```
-cat <<< $(jq '.app_state.gov.voting_params.voting_period = "20s"' $HOME/.simapp/config/genesis.json) > $HOME/.simapp/config/genesis.json
+cat <<< $(jq '.app_state.gov.voting_params.voting_period = "20s"' $HOME/.moneta/config/genesis.json) > $HOME/.moneta/config/genesis.json
 ```
 
 Next, we will hardcode a modification in `simapp` to simulate a code change. In `simapp/app.go`, find the line containing the `UpgradeKeeper` initialization. It should look like the following:

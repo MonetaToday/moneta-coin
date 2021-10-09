@@ -26,6 +26,6 @@ RUN chmod +x send_funds.sh
 RUN chmod +x faucet.py
 
 COPY --from=build /node/root /root/
-WORKDIR /root/.simapp
+WORKDIR /root/.moneta
 
 RUN chmod -R 0777 ./

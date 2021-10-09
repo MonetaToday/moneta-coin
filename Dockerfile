@@ -2,13 +2,13 @@
 # > docker build -t simapp .
 #
 # Server:
-# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.simapp:/root/.simapp simapp simd init test-chain
+# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.moneta:/root/.moneta simapp simd init test-chain
 # TODO: need to set validator in genesis so start runs
-# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.simapp:/root/.simapp simapp simd start
+# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.moneta:/root/.moneta simapp simd start
 #
-# Client: (Note the simapp binary always looks at ~/.simapp we can bind to different local storage)
-# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.simappcli:/root/.simapp simapp simd keys add foo
-# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.simappcli:/root/.simapp simapp simd keys list
+# Client: (Note the simapp binary always looks at ~/.moneta we can bind to different local storage)
+# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.monetacli:/root/.moneta simapp simd keys add foo
+# > docker run -it -p 26657:26657 -p 26656:26656 -v ~/.monetacli:/root/.moneta simapp simd keys list
 # TODO: demo connecting rest-server (or is this in server now?)
 FROM golang:alpine AS build-env
 

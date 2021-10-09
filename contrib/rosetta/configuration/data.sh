@@ -6,8 +6,8 @@ wait_simd() {
   timeout 30 sh -c 'until nc -z $0 $1; do sleep 1; done' localhost 9090
 }
 # this script is used to recreate the data dir
-echo clearing /root/.simapp
-rm -rf /root/.simapp
+echo clearing /root/.moneta
+rm -rf /root/.moneta
 echo initting new chain
 # init config files
 simd init simd --chain-id testing
@@ -29,7 +29,7 @@ simd collect-gentxs
 # verify genesis file is fine
 simd validate-genesis
 echo changing network settings
-sed -i 's/127.0.0.1/0.0.0.0/g' /root/.simapp/config/config.toml
+sed -i 's/127.0.0.1/0.0.0.0/g' /root/.moneta/config/config.toml
 
 # start simd
 echo starting simd...
@@ -54,6 +54,6 @@ kill -9 $pid
 
 echo zipping data dir and saving to /tmp/data.tar.gz
 
-tar -czvf /tmp/data.tar.gz /root/.simapp
+tar -czvf /tmp/data.tar.gz /root/.moneta
 
 echo new address for bootstrap.json "$addr" "$val_addr"

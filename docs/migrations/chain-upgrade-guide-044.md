@@ -64,7 +64,7 @@ Build the `simd` binary for the latest `v0.42.x` release (the genesis binary):
 make build
 ```
 
-Reset `~/.simapp` (never do this in a production environment):
+Reset `~/.moneta` (never do this in a production environment):
 
 ```
 ./build/simd unsafe-reset-all
@@ -86,7 +86,7 @@ Initialize the node and overwrite any previous genesis file (never do this in a 
 ./build/simd init test --chain-id test --overwrite
 ```
 
-Set the minimum gas price to `0stake` in `~/.simapp/config/app.toml`:
+Set the minimum gas price to `0stake` in `~/.moneta/config/app.toml`:
 
 ```
 minimum-gas-prices = "0stake"
@@ -95,7 +95,7 @@ minimum-gas-prices = "0stake"
 For the purpose of this demonstration, change `voting_period` in `genesis.json` to a reduced time of 20 seconds (`20s`):
 
 ```
-cat <<< $(jq '.app_state.gov.voting_params.voting_period = "20s"' $HOME/.simapp/config/genesis.json) > $HOME/.simapp/config/genesis.json
+cat <<< $(jq '.app_state.gov.voting_params.voting_period = "20s"' $HOME/.moneta/config/genesis.json) > $HOME/.moneta/config/genesis.json
 ```
 
 Create a new key for the validator, then add a genesis account and transaction:
@@ -128,7 +128,7 @@ Set the required environment variables:
 
 ```
 export DAEMON_NAME=simd
-export DAEMON_HOME=$HOME/.simapp
+export DAEMON_HOME=$HOME/.moneta
 ```
 
 Set the optional environment variable to trigger an automatic restart:

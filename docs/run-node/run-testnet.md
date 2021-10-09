@@ -36,7 +36,7 @@ The `gentxs` directory includes a genesis transaction for each validator node. E
 
 ### nodes
 
-A node directory is created for each validator node. Within each node directory is a `simd` directory. The `simd` directory is the home directory for each node, which includes the configuration and data files for that node (i.e. the same files included in the default `~/.simapp` directory when running a single node).
+A node directory is created for each validator node. Within each node directory is a `simd` directory. The `simd` directory is the home directory for each node, which includes the configuration and data files for that node (i.e. the same files included in the default `~/.moneta` directory when running a single node).
 
 ## Start Testnet
 
