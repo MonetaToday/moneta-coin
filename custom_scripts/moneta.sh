@@ -13,6 +13,6 @@ export P2P_ADDRESS="tcp://0.0.0.0:26656"
 export PROXY_ADDRESS="tcp://127.0.0.1:26658"
 export RPC_ADDRESS="tcp://127.0.0.1:26657"
 
-# rm -R $DAEMON_HOME
-# sh $BC_SRC/custom_scripts/init.sh
+rm -R $DAEMON_HOME
+sh $BC_SRC/custom_scripts/init.sh
 sh $BC_SRC/custom_scripts/up.sh
