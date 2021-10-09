@@ -40,13 +40,13 @@ Each module exposes a [Protobuf `Query` service](../building-modules/messages-an
 
 Note: It is not possible to expose any [Protobuf `Msg` service](../building-modules/messages-and-queries.md#messages) endpoints via gRPC. Transactions must be generated and signed using the CLI or programatically before they can be broadcasted using gRPC. See [Generating, Signing, and Broadcasting Transactions](../run-node/txs.html) for more information.
 
-The `grpc.Server` is a concrete gRPC server, which spawns and serves all gRPC query requests and a broadcast transaction request. This server can be configured inside `~/.simapp/config/app.toml`:
+The `grpc.Server` is a concrete gRPC server, which spawns and serves all gRPC query requests and a broadcast transaction request. This server can be configured inside `~/.moneta/config/app.toml`:
 
 - `grpc.enable = true|false` field defines if the gRPC server should be enabled. Defaults to `true`.
 - `grpc.address = {string}` field defines the address (really, the port, since the host should be kept at `0.0.0.0`) the server should bind to. Defaults to `0.0.0.0:9090`.
 
 :::tip
-`~/.simapp` is the directory where the node's configuration and databases are stored. By default, it's set to `~/.{app_name}`.
+`~/.moneta` is the directory where the node's configuration and databases are stored. By default, it's set to `~/.{app_name}`.
 :::
 
 Once the gRPC server is started, you can send requests to it using a gRPC client. Some examples are given in our [Interact with the Node](../run-node/interact-node.md#using-grpc) tutorial.
@@ -57,11 +57,11 @@ An overview of all available gRPC endpoints shipped with the Cosmos SDK is [Prot
 
 In Cosmos SDK v0.40, the node continues to serve a REST server. However, the existing routes present in version v0.39 and earlier are now marked as deprecated, and new routes have been added via gRPC-gateway.
 
-All routes are configured under the following fields in `~/.simapp/config/app.toml`:
+All routes are configured under the following fields in `~/.moneta/config/app.toml`:
 
 - `api.enable = true|false` field defines if the REST server should be enabled. Defaults to `false`.
 - `api.address = {string}` field defines the address (really, the port, since the host should be kept at `0.0.0.0`) the server should bind to. Defaults to `tcp://0.0.0.0:1317`.
-- some additional API configuration options are defined in `~/.simapp/config/app.toml`, along with comments, please refer to that file directly.
+- some additional API configuration options are defined in `~/.moneta/config/app.toml`, along with comments, please refer to that file directly.
 
 ### gRPC-gateway REST Routes
 
@@ -83,13 +83,13 @@ For application developers, Legacy REST API routes needs to be wired up to the R
 
 A [Swagger](https://swagger.io/) (or OpenAPIv2) specification file is exposed under the `/swagger` route on the API server. Swagger is an open specification describing the API endpoints a server serves, including description, input arguments, return types and much more about each endpoint.
 
-Enabling the `/swagger` endpoint is configurable inside `~/.simapp/config/app.toml` via the `api.swagger` field, which is set to true by default.
+Enabling the `/swagger` endpoint is configurable inside `~/.moneta/config/app.toml` via the `api.swagger` field, which is set to true by default.
 
 For application developers, you may want to generate your own Swagger definitions based on your custom modules. The SDK's [Swagger generation script](https://github.com/cosmos/cosmos-sdk/blob/v0.40.0-rc4/scripts/protoc-swagger-gen.sh) is a good place to start.
 
 ## Tendermint RPC
 
-Independently from the Cosmos SDK, Tendermint also exposes a RPC server. This RPC server can be configured by tuning parameters under the `rpc` table in the `~/.simapp/config/config.toml`, the default listening address is `tcp://0.0.0.0:26657`. An OpenAPI specification of all Tendermint RPC endpoints is available [here](https://docs.tendermint.com/master/rpc/).
+Independently from the Cosmos SDK, Tendermint also exposes a RPC server. This RPC server can be configured by tuning parameters under the `rpc` table in the `~/.moneta/config/config.toml`, the default listening address is `tcp://0.0.0.0:26657`. An OpenAPI specification of all Tendermint RPC endpoints is available [here](https://docs.tendermint.com/master/rpc/).
 
 Some Tendermint RPC endpoints are directly related to the Cosmos SDK:
 

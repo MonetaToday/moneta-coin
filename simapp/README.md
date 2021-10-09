@@ -18,7 +18,7 @@ in this testnet.
 2. If you've run `simd` before, you may need to reset your database before starting a new
     testnet. You can reset your database with the following command: `$ ./simd unsafe-reset-all`.
 3. `$ ./simd init [moniker] --chain-id [chain-id]`. This will initialize a new working directory
-    at the default location `~/.simapp`. You need to provide a "moniker" and a "chain id". These
+    at the default location `~/.moneta`. You need to provide a "moniker" and a "chain id". These
     two names can be anything, but you will need to use the same "chain id" in the following steps.
 4. `$ ./simd keys add [key_name]`. This will create a new key, with a name of your choosing.
     Save the output of this command somewhere; you'll need the address generated here later.
