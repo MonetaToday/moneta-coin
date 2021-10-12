@@ -1,11 +1,10 @@
 export BC_SRC=~/files/repos/moneta-coin
 
-export DAEMON_NAME=simd 
-export CHAIN_NAME=mars
-export VALIDATOR_NAME=validator2
+export DAEMON_NAME=monetad 
+export CHAIN_NAME=moneta
 
-export DAEMON_HOME=$HOME/.mars
-export NODE_NAME=node_mars
+export DAEMON_HOME=$HOME/.moneta_2
+export NODE_NAME=node_moneta_2
 
 export ADDRESS="tcp://0.0.0.0:27658"
 export GRPC_ADDRESS="0.0.0.0:9790"
