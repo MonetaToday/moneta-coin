@@ -15,4 +15,6 @@ export RPC_ADDRESS="tcp://127.0.0.1:26657"
 
 rm -R $DAEMON_HOME
 sh $BC_SRC/custom_scripts/init.sh
+cp $BC_SRC/initial_configs/config.toml $DAEMON_HOME/config/config.toml
+cp $BC_SRC/initial_configs/app.toml $DAEMON_HOME/config/app.toml
 sh $BC_SRC/custom_scripts/up.sh
