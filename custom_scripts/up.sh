@@ -1,1 +1,1 @@
-$BC_SRC/cosmovisor/cosmovisor start --address $ADDRESS --grpc.address $GRPC_ADDRESS --p2p.laddr $P2P_ADDRESS --proxy_app $PROXY_ADDRESS --rpc.laddr $RPC_ADDRESS --minimum-gas-prices 1micromoneta
+$BC_SRC/cosmovisor/cosmovisor start --address $ADDRESS --grpc.address $GRPC_ADDRESS --p2p.laddr $P2P_ADDRESS --proxy_app $PROXY_ADDRESS --rpc.laddr $RPC_ADDRESS

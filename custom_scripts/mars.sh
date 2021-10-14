@@ -20,4 +20,4 @@ $BC_SRC/build/$DAEMON_NAME init $NODE_NAME --home $DAEMON_HOME --chain-id $CHAIN
 cp $BC_SRC/initial_configs/node_2_config.toml $DAEMON_HOME/config/config.toml
 cp $BC_SRC/initial_configs/node_2_app.toml $DAEMON_HOME/config/app.toml
 cp ~/.moneta/config/genesis.json $DAEMON_HOME/config/genesis.json
-$BC_SRC/cosmovisor/cosmovisor start --home $DAEMON_HOME --address $ADDRESS --grpc.address $GRPC_ADDRESS --p2p.laddr $P2P_ADDRESS --proxy_app $PROXY_ADDRESS --rpc.laddr $RPC_ADDRESS --minimum-gas-prices 1micromoneta
+$BC_SRC/cosmovisor/cosmovisor start --home $DAEMON_HOME --address $ADDRESS --grpc.address $GRPC_ADDRESS --p2p.laddr $P2P_ADDRESS --proxy_app $PROXY_ADDRESS --rpc.laddr $RPC_ADDRESS
