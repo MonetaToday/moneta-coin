@@ -2,6 +2,7 @@ package client
 
 import (
 	"bufio"
+	"encoding/json"
 	"io"
 	"os"
 
@@ -71,6 +72,17 @@ func (ctx Context) WithInput(r io.Reader) Context {
 	// the Commands, ensuring a read from one advance the read pointer for the other.
 	// see https://github.com/cosmos/cosmos-sdk/issues/9566.
 	ctx.Input = bufio.NewReader(r)
+	return ctx
+}
+
+// Deprecated: WithJSONCodec returns a copy of the Context with an updated JSONCodec.
+func (ctx Context) WithJSONCodec(m codec.JSONCodec) Context {
+	ctx.JSONCodec = m
+	// since we are using ctx.Codec everywhere in the SDK, for backward compatibility
+	// we need to try to set it here as well.
+	if c, ok := m.(codec.Codec); ok {
+		ctx.Codec = c
+	}
 	return ctx
 }
 

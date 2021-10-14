@@ -80,6 +80,8 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			serverCtx := server.GetServerContextFromCmd(cmd)
 			config := serverCtx.Config
+
+			clientCtx = client.ReadHomeFlag(clientCtx, cmd)
 			config.SetRoot(clientCtx.HomeDir)
 
 			chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
@@ -122,27 +124,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 				return fmt.Errorf("genesis.json file already exists: %v", genFile)
 			}
 
-			appGenState := mbm.DefaultGenesis(cdc)
-
-			if stakingBondDenom != "" {
-				var stakingGenesis stakingtypes.GenesisState
-
-				stakingRaw := appGenState[stakingtypes.ModuleName]
-				err := clientCtx.Codec.UnmarshalJSON(stakingRaw, &stakingGenesis)
-				if err != nil {
-					return err
-				}
-
-				stakingGenesis.Params.BondDenom = stakingBondDenom
-				modifiedStakingStr, err := clientCtx.Codec.MarshalJSON(&stakingGenesis)
-				if err != nil {
-					return err
-				}
-
-				appGenState[stakingtypes.ModuleName] = modifiedStakingStr
-			}
-
-			appState, err := json.MarshalIndent(appGenState, "", " ")
+			appState, err := json.MarshalIndent(mbm.DefaultGenesis(cdc), "", " ")
 			if err != nil {
 				return errors.Wrap(err, "Failed to marshal default genesis state")
 			}

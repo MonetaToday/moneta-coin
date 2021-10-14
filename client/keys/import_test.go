@@ -19,7 +19,6 @@ import (
 )
 
 func Test_runImportCmd(t *testing.T) {
-	cdc := simapp.MakeTestEncodingConfig().Codec
 	testCases := []struct {
 		name           string
 		keyringBackend string
@@ -82,16 +81,15 @@ HbP+c6JmeJy9JXe2rbbF1QtCX1gLqGcDQPBXiCtFvP7/8wTZtVOPj8vREzhZ9ElO
 
 			// Now add a temporary keybase
 			kbHome := t.TempDir()
-			kb, err := keyring.New(sdk.KeyringServiceName(), tc.keyringBackend, kbHome, nil, cdc)
-			require.NoError(t, err)
+			kb, err := keyring.New(sdk.KeyringServiceName(), tc.keyringBackend, kbHome, nil)
 
 			clientCtx := client.Context{}.
 				WithKeyringDir(kbHome).
 				WithKeyring(kb).
-				WithInput(mockIn).
-				WithCodec(cdc)
+				WithInput(mockIn)
 			ctx := context.WithValue(context.Background(), client.ClientContextKey, &clientCtx)
 
+			require.NoError(t, err)
 			t.Cleanup(func() {
 				kb.Delete("keyname1") // nolint:errcheck
 			})

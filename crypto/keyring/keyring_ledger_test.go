@@ -100,9 +100,9 @@ func TestAltKeyring_SaveLedgerKey(t *testing.T) {
 	require.NoError(t, err)
 
 	// Test unsupported Algo
-	_, err = kr.SaveLedgerKey("key", notSupportedAlgo{}, "cosmos", 118, 0, 0)
+	_, err = keyring.SaveLedgerKey("key", notSupportedAlgo{}, "cosmos", 118, 0, 0)
 	require.Error(t, err)
-	require.True(t, strings.Contains(err.Error(), ErrUnsupportedSigningAlgo.Error()))
+	require.Contains(t, err.Error(), ErrUnsupportedSigningAlgo.Error())
 
 	k, err := kr.SaveLedgerKey("some_account", hd.Secp256k1, "cosmos", 118, 3, 1)
 	if err != nil {

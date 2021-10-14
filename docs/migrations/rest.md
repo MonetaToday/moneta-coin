@@ -10,7 +10,11 @@ Migrate to gRPC-Gateway REST endpoints. Legacy REST endpoints were marked as dep
 Two Legacy REST endpoints (`POST /txs` and `POST /txs/encode`) were removed ahead of schedule in v0.44 due to a security vulnerability.
 :::
 
-## Legacy REST Endpoints
+::: warning
+Two Legacy REST endpoints (`POST /txs` and `POST /txs/encode`) were removed ahead of schedule in v0.44 due to a security vulnerability.
+:::
+
+Cosmos SDK versions v0.39 and earlier registered REST endpoints using a package called `gorilla/mux`. These REST endpoints were marked as deprecated in v0.40 and have since been referred to as legacy REST endpoints. Legacy REST endpoints will be officially removed in v0.45.
 
 Cosmos SDK versions v0.39 and earlier registered REST endpoints using a package called `gorilla/mux`. These REST endpoints were marked as deprecated in v0.40 and have since been referred to as legacy REST endpoints. Legacy REST endpoints will be officially removed in v0.45.
 
@@ -19,6 +23,10 @@ Cosmos SDK versions v0.39 and earlier registered REST endpoints using a package 
 Following the Protocol Buffers migration in v0.40, Cosmos SDK has been set to take advantage of a vast number of gRPC tools and solutions. v0.40 introduced new REST endpoints generated from [gRPC `Query` services](../building-modules/query-services.md) using [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/). These new REST endpoints are referred to as gRPC-Gateway REST endpoints.
 
 ## Migrating to New REST Endpoints
+
+Thanks to the Protocol Buffers migration in v0.40, we are able to take advantage of a vast number of gRPC tools and solutions. Most of the legacy REST endpoints have been replaced by REST endpoints generated from [gRPC `Query` services](../building-modules/query-services.md) using [grpc-gateway](https://grpc-ecosystem.github.io/grpc-gateway/). We usually call them _gRPC-gateway REST endpoints_.
+
+Previously, some modules exposed legacy `POST` endpoints to generate unsigned transactions for their `Msg`s. These `POST` endpoints were removed in v0.40. We recommend using [Protobuf `Msg` service](../building-modules/msg-services.md) directly to do client-side transaction generation. A guide can be found [here](../run-node/txs.md).
 
 | Legacy REST Endpoint                                                            | Description                                                         | New gRPC-gateway REST Endpoint                                                                        |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |

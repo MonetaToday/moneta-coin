@@ -78,11 +78,6 @@ func (ctx Context) Invoke(grpcCtx gocontext.Context, method string, req, reply i
 		Height: ctx.Height,
 	}
 
-	res, err := ctx.QueryABCI(abciReq)
-	if err != nil {
-		return err
-	}
-
 	err = protoCodec.Unmarshal(res.Value, reply)
 	if err != nil {
 		return err

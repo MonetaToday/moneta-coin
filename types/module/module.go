@@ -30,7 +30,6 @@ package module
 
 import (
 	"encoding/json"
-	"fmt"
 	"sort"
 
 	"github.com/gorilla/mux"

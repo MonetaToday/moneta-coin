@@ -33,7 +33,7 @@ func Test_runAddCmdBasic(t *testing.T) {
 	kb, err := keyring.New(sdk.KeyringServiceName(), keyring.BackendTest, kbHome, mockIn, cdc)
 	require.NoError(t, err)
 
-	clientCtx := client.Context{}.WithKeyringDir(kbHome).WithInput(mockIn).WithCodec(cdc)
+	clientCtx := client.Context{}.WithKeyringDir(kbHome).WithInput(mockIn)
 	ctx := context.WithValue(context.Background(), client.ClientContextKey, &clientCtx)
 
 	t.Cleanup(func() {
@@ -235,12 +235,11 @@ func Test_runAddCmdDryRun(t *testing.T) {
 func TestAddRecoverFileBackend(t *testing.T) {
 	cmd := AddKeyCommand()
 	cmd.Flags().AddFlagSet(Commands("home").PersistentFlags())
-	cdc := simapp.MakeTestEncodingConfig().Codec
 
 	mockIn := testutil.ApplyMockIODiscardOutErr(cmd)
 	kbHome := t.TempDir()
 
-	clientCtx := client.Context{}.WithKeyringDir(kbHome).WithInput(mockIn).WithCodec(cdc)
+	clientCtx := client.Context{}.WithKeyringDir(kbHome).WithInput(mockIn)
 	ctx := context.WithValue(context.Background(), client.ClientContextKey, &clientCtx)
 
 	cmd.SetArgs([]string{
@@ -263,7 +262,7 @@ func TestAddRecoverFileBackend(t *testing.T) {
 	mockIn.Reset(fmt.Sprintf("%s\n%s\n%s\n", mnemonic, keyringPassword, keyringPassword))
 	require.NoError(t, cmd.ExecuteContext(ctx))
 
-	kb, err := keyring.New(sdk.KeyringServiceName(), keyring.BackendFile, kbHome, mockIn, cdc)
+	kb, err := keyring.New(sdk.KeyringServiceName(), keyring.BackendFile, kbHome, mockIn)
 	require.NoError(t, err)
 
 	t.Cleanup(func() {
@@ -272,7 +271,7 @@ func TestAddRecoverFileBackend(t *testing.T) {
 	})
 
 	mockIn.Reset(fmt.Sprintf("%s\n%s\n", keyringPassword, keyringPassword))
-	k, err := kb.Key("keyname1")
+	info, err := kb.Key("keyname1")
 	require.NoError(t, err)
-	require.Equal(t, "keyname1", k.Name)
+	require.Equal(t, "keyname1", info.GetName())
 }

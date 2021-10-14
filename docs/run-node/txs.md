@@ -350,7 +350,7 @@ func simulateTx() error {
 
 ## Using gRPC
 
-It is not possible to generate or sign a transaction using gRPC, only to broadcast one. In order to broadcast a transaction using gRPC, you will need to generate, sign, and encode the transaction using either the CLI or programmatically with Go.
+It is not possible to generate or sign a transaction using gRPC, only to broadcast one.
 
 ### Broadcasting a Transaction
 

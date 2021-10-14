@@ -77,7 +77,7 @@ func migrateBalanceKeys(store sdk.KVStore) {
 // - Change balances prefix to 1 byte
 // - Change supply to be indexed by denom
 // - Prune balances & supply with zero coins (ref: https://github.com/cosmos/cosmos-sdk/pull/9229)
-func MigrateStore(ctx sdk.Context, storeKey storetypes.StoreKey, cdc codec.BinaryCodec) error {
+func MigrateStore(ctx sdk.Context, storeKey sdk.StoreKey, cdc codec.BinaryCodec) error {
 	store := ctx.KVStore(storeKey)
 	migrateBalanceKeys(store)
 

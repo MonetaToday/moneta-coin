@@ -457,12 +457,9 @@ func (s *IntegrationTestSuite) TestCLIQueryTxCmdByEvents() {
 
 	sendTokens := sdk.NewInt64Coin(s.cfg.BondDenom, 10)
 
-	addr2, err := account2.GetAddress()
-	s.Require().NoError(err)
-
 	// Send coins.
 	out, err := s.createBankMsg(
-		val, addr2,
+		val, account2.GetAddress(),
 		sdk.NewCoins(sendTokens),
 	)
 	s.Require().NoError(err)
@@ -574,12 +571,9 @@ func (s *IntegrationTestSuite) TestCLIQueryTxsCmdByEvents() {
 
 	sendTokens := sdk.NewInt64Coin(s.cfg.BondDenom, 10)
 
-	addr2, err := account2.GetAddress()
-	s.Require().NoError(err)
 	// Send coins.
 	out, err := s.createBankMsg(
-		val,
-		addr2,
+		val, account2.GetAddress(),
 		sdk.NewCoins(sendTokens),
 	)
 	s.Require().NoError(err)
@@ -1027,10 +1021,8 @@ func (s *IntegrationTestSuite) TestCLIMultisign() {
 
 	sign1File := testutil.WriteToNewTempFile(s.T(), account1Signature.String())
 
-	addr2, err := account2.GetAddress()
-	s.Require().NoError(err)
-	// Sign with account1
-	account2Signature, err := TxSignExec(val1.ClientCtx, addr2, multiGeneratedTxFile.Name(), "--multisig", addr.String())
+	// Sign with account2
+	account2Signature, err := TxSignExec(val1.ClientCtx, account2.GetAddress(), multiGeneratedTxFile.Name(), "--multisig", multisigInfo.GetAddress().String())
 	s.Require().NoError(err)
 
 	sign2File := testutil.WriteToNewTempFile(s.T(), account2Signature.String())
