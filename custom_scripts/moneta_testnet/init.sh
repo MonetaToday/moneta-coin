@@ -1,9 +1,9 @@
 export BC_SRC=$1
 
 export DAEMON_NAME=monetad
-export DAEMON_HOME=$HOME/.moneta-testnet
+export DAEMON_HOME=$HOME/.moneta_testnet
 
-export CHAIN_NAME=moneta-testnet
+export CHAIN_NAME=moneta_testnet
 export ACCOUNT_NAME=$2
 export NODE_NAME=$3
 
