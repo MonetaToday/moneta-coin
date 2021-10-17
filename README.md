@@ -89,6 +89,8 @@ Or:
   tail -n 100 /var/log/monetad/monetad_error.log
 ```
 
+## Security settings
+
 Config your firewall:
 ```sh
   sudo ufw default deny incoming
