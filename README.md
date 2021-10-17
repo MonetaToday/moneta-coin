@@ -5,29 +5,50 @@ The coins which are deposited to a proposal will burn either:
 2) VetoThreshold votes count is greater than 0.334% of voting power.
 
 
+## Take part in the consensus
 
 Firstly install Go:
+```sh
   https://golang.org/doc/install
+```
 
 Secondly clone the repository:
+```sh
   git clone https://github.com/MonetaToday/moneta-coin.git -b monetacoin-develop
+```
 
 In Ubuntu please install:
+```sh
   apt install make gcc
+```
 
 And make the build:
+```sh
   make build; make cosmovisor
+```
+
+Run:
+```sh
+  sh ./custom_scripts/moneta_testnet/init.sh PATH-TO-MONETA-COIN-REPOSITORY something node_something
+  sh ./custom_scripts/moneta_testnet/copy_configs.sh PATH-TO-MONETA-COIN-REPOSITORY
+  sh ./custom_scripts/moneta_testnet/moneta_up.sh PATH-TO-MONETA-COIN-REPOSITORY
+```
 
 Make systemd service:
+```sh
   mkdir -p /var/log/monetad
   touch /var/log/monetad/monetad.log
   touch /var/log/monetad/monetad_error.log
   touch /etc/systemd/system/monetad.service
+```
 
 Then provide the service:
+```sh
   nano /etc/systemd/system/monetad.service
+```
 
 with:
+```sh
   [Unit]
   Description=moneta daemon
   After=network-online.target
@@ -44,19 +65,30 @@ with:
   LimitNOFILE=4096
   [Install]
   WantedBy=multi-user.target
+```
 
 And enable the service:
+```sh
   systemctl enable monetad.service
+```
 
 Then start it:
+```sh
   systemctl start monetad.service
+```
 
 You can see logs:
+```sh
   journalctl -u digitaloceand -f
+```
+
 Or:
+```sh
   tail -n 100 /var/log/monetad/monetad_error.log
+```
 
 Config your firewall:
+```sh
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
   sudo ufw allow OpenSSH
@@ -67,3 +99,4 @@ Config your firewall:
   sudo ufw allow 1317/tcp
   sudo ufw allow 8080/tcp
   sudo ufw --force enable
+```
