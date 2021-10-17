@@ -9,6 +9,7 @@ export NODE_NAME=$3
 
 rm -R $DAEMON_HOME
 
+mkdir -p $DAEMON_HOME/private
 mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
 
