@@ -34,6 +34,8 @@ Run:
   sh ./custom_scripts/moneta_testnet/moneta_up.sh PATH-TO-MONETA-COIN-REPOSITORY
 ```
 
+## Creating daemon service
+
 Make systemd service:
 ```sh
   mkdir -p /var/log/monetad
