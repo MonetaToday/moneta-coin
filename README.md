@@ -104,3 +104,33 @@ Config your firewall:
   sudo ufw allow 8080/tcp
   sudo ufw --force enable
 ```
+
+## Nginx settings
+
+```sh
+apt install nginx
+nano /etc/nginx/sites-available/node.moneta.coin
+```
+
+Insert into config:
+```sh
+server {
+        listen 80;
+        listen [::]:80;
+
+        server_name testnet1.monetacoin.moneta.today;
+        
+        location /health {
+               proxy_pass http://localhost:26657/health;
+        }
+
+        location /status {
+               proxy_pass http://localhost:26657/status;
+        }
+}
+```
+
+```sh
+ln -s /etc/nginx/sites-available/node.moneta.coin /etc/nginx/sites-enabled/
+systemctl restart nginx
+```
