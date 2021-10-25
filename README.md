@@ -81,7 +81,7 @@ Then start it:
 
 You can see logs:
 ```sh
-  journalctl -u digitaloceand -f
+  journalctl -u monetad -f
 ```
 
 Or:
