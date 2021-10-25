@@ -118,7 +118,7 @@ server {
         listen 80;
         listen [::]:80;
 
-        server_name testnet1.monetacoin.moneta.today;
+        server_name node.moneta.coin;
         
         location /health {
                proxy_pass http://localhost:26657/health;
