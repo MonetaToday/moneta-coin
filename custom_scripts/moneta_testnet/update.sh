@@ -5,6 +5,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 git pull
 make build
-cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
 
-systemctl restart monetad.service
+systemctl stop monetad.service
+cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
+systemctl start monetad.service
