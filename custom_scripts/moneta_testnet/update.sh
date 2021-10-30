@@ -7,7 +7,7 @@ git pull
 make build
 
 systemctl stop monetad.service
-echo "Service monetad.service restarted"
+echo "Service monetad.service stopped"
 
 cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
 echo "Build bin copied"
