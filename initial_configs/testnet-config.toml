@@ -274,8 +274,7 @@ max_tx_bytes = 1048576
 # XXX: Unused due to https://github.com/tendermint/tendermint/issues/5796
 max_batch_bytes = 0
 
-ttl_duration = "60s"
-ttl_num_blocks = 10
+ttl-num-blocks = 10
 
 #######################################################
 ###         State Sync Configuration Options        ###
