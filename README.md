@@ -19,6 +19,7 @@ Secondly clone the repository:
 
 In Ubuntu please install:
 ```sh
+  apt update
   apt install make gcc
 ```
 
@@ -29,9 +30,10 @@ And make the build:
 
 Run:
 ```sh
-  sh ./custom_scripts/moneta_testnet/init.sh PATH-TO-MONETA-COIN-REPOSITORY something node_something
-  sh ./custom_scripts/moneta_testnet/copy_configs.sh PATH-TO-MONETA-COIN-REPOSITORY
-  sh ./custom_scripts/moneta_testnet/moneta_up.sh PATH-TO-MONETA-COIN-REPOSITORY
+  export PATH_TO_MONETA_COIN_REPOSITORY=PATH
+  sh ./custom_scripts/moneta_testnet/init.sh $PATH_TO_MONETA_COIN_REPOSITORY something node_something
+  sh ./custom_scripts/moneta_testnet/copy_configs.sh $PATH_TO_MONETA_COIN_REPOSITORY
+  sh ./custom_scripts/moneta_testnet/moneta_up.sh $PATH_TO_MONETA_COIN_REPOSITORY
 ```
 
 ## Creating daemon service
