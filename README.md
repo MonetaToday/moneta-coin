@@ -31,7 +31,7 @@ And make the build:
 Run:
 ```sh
   export PATH_TO_MONETA_COIN_REPOSITORY=PATH
-  sh ./custom_scripts/moneta_testnet/init.sh $PATH_TO_MONETA_COIN_REPOSITORY something node_something
+  sh ./custom_scripts/moneta_testnet/init.sh $PATH_TO_MONETA_COIN_REPOSITORY account_name node_name
   sh ./custom_scripts/moneta_testnet/copy_configs.sh $PATH_TO_MONETA_COIN_REPOSITORY
   sh ./custom_scripts/moneta_testnet/moneta_up.sh $PATH_TO_MONETA_COIN_REPOSITORY
 ```
@@ -60,8 +60,8 @@ with:
   Environment="DAEMON_NAME=monetad"
   Environment="DAEMON_HOME=/root/.moneta"
   User=root
-  ExecStart={PATH-TO-MONETA-COIN-REPOSITORY}/cosmovisor/cosmovisor start
-  WorkingDirectory={PATH-TO-MONETA-COIN-REPOSITORY}/custom_scripts/moneta_testnet
+  ExecStart={RENAME-THIS-TO-PATH-TO-MONETA-COIN-REPOSITORY}/cosmovisor/cosmovisor start
+  WorkingDirectory={RENAME-THIS-TO-PATH-TO-MONETA-COIN-REPOSITORY}/custom_scripts/moneta_testnet
   StandardOutput=file:/var/log/monetad/monetad.log
   StandardError=file:/var/log/monetad/monetad_error.log
   Restart=always
