@@ -182,7 +182,7 @@ laddr = "tcp://0.0.0.0:26656"
 external_address = ""
 
 # Comma separated list of seed nodes to connect to
-seeds = "4eeade3e5fd2ddb418233f5f2fd846821ababde5@testnet1.monetacoin.moneta.today:26656,d3d1b0b63b198edc7ca390995b1e03f2117e8ad6@testnet2.monetacoin.moneta.today:26656,3d54ac2012af0697838f1cac9e6c86a8cc0bb93d@testnet3.monetacoin.moneta.today:26656"
+seeds = "e8cd354a31cd8a5f3854541b68d1046f62788cdc@testnet1.monetacoin.moneta.today:26656,da489b883e1c2626330d61448763b0af20a5f23b@testnet2.monetacoin.moneta.today:26656,776bb2a195faf19531df0c15e97a5f340b52957e@testnet3.monetacoin.moneta.today:26656"
 
 # Comma separated list of nodes to keep persistent connections to
 persistent_peers = ""
