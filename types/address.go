@@ -35,15 +35,15 @@ const (
 	// Bech32MainPrefix defines the main SDK Bech32 prefix of an account's address
 	Bech32MainPrefix = "moneta"
 
-	// Purpose is the ATOM purpose as defined in SLIP44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+	// Purpose is the Moneta coin purpose as defined in SLIP44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
 	Purpose = 44
 
-	// CoinType is the ATOM coin type as defined in SLIP44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
-	CoinType = 118
+	// CoinType is the Moneta coin type as defined in SLIP44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+	CoinType = 707
 
 	// FullFundraiserPath is the parts of the BIP44 HD path that are fixed by
-	// what we used during the ATOM fundraiser.
-	FullFundraiserPath = "m/44'/118'/0'/0/0"
+	// what we used during the Moneta coin fundraiser.
+	FullFundraiserPath = "m/44'/707'/0'/0/0"
 
 	// PrefixAccount is the prefix for account keys
 	PrefixAccount = "acc"
