@@ -101,6 +101,7 @@ Config your firewall:
   sudo ufw allow 80/tcp
   sudo ufw allow 443/tcp
   sudo ufw allow 60000:61000/udp
+  sudo ufw allow 26656/tcp
   sudo ufw allow 26657/tcp
   sudo ufw allow 1317/tcp
   sudo ufw allow 8080/tcp
