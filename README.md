@@ -113,6 +113,7 @@ Config your firewall:
 ```sh
 apt install nginx
 nano /etc/nginx/sites-available/node.moneta.coin
+rm /etc/nginx/sites-enabled/default
 ```
 
 Insert into config:
