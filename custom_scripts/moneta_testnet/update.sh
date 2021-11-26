@@ -5,6 +5,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 git pull
 make build
+make cosmovisor
 cp $BC_SRC/initial_configs/testnet-config.toml $DAEMON_HOME/config/config.toml
 cp $BC_SRC/initial_configs/testnet-genesis.json $DAEMON_HOME/config/genesis.json
 
