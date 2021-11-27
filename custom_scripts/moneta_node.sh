@@ -3,7 +3,7 @@ export BC_SRC=~/files/repos/moneta-coin
 export DAEMON_NAME=monetad
 export DAEMON_HOME=$HOME/.moneta
 
-export CHAIN_NAME=moneta
+export CHAIN_NAME=moneta_testnet
 export VALIDATOR_NAME=validator1
 export NODE_NAME=node_moneta
 
