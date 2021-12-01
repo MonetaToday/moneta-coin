@@ -15,3 +15,4 @@ export RPC_ADDRESS="tcp://127.0.0.1:26657"
 
 # $BC_SRC/cosmovisor/cosmovisor --home $DAEMON_HOME --node $RPC_ADDRESS --keyring-backend test --chain-id $CHAIN_NAME $@
 $BC_SRC/build/$DAEMON_NAME --home $DAEMON_HOME --node $RPC_ADDRESS --chain-id $CHAIN_NAME $@
+# $BC_SRC/build/$DAEMON_NAME --home $DAEMON_HOME $@
