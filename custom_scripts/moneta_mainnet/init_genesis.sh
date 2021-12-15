@@ -10,6 +10,7 @@ export NODE_NAME=$3
 mkdir -p $BC_SRC/private
 mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
+echo $NODE_NAME > $BC_SRC/private/node_name
 
 $BC_SRC/build/$DAEMON_NAME init $NODE_NAME --chain-id $CHAIN_NAME
 $BC_SRC/build/$DAEMON_NAME keys add $ACCOUNT_NAME > $BC_SRC/private/$ACCOUNT_NAME.keys
