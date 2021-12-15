@@ -88,7 +88,7 @@ import (
 	_ "github.com/cosmos/cosmos-sdk/client/docs/statik"
 )
 
-const appName = "SimApp"
+const appName = "monetad"
 
 var (
 	// DefaultNodeHome default home directories for the application daemon
