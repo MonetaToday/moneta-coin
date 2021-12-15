@@ -12,8 +12,12 @@ cp $BC_SRC/initial_configs/mainnet-genesis.json $DAEMON_HOME/config/genesis.json
 systemctl stop monetad.service
 echo "Service monetad.service stopped"
 
+rm /var/log/monetad/monetad_error.log
+
 cp $BC_SRC/build/$DAEMON_NAME $DAEMON_HOME/cosmovisor/genesis/bin
 echo "Build bin copied"
+
+touch /var/log/monetad/monetad_error.log
 
 systemctl start monetad.service
 echo "Service monetad.service started"
