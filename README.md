@@ -31,9 +31,10 @@ And make the build:
 Run:
 ```sh
   export PATH_TO_MONETA_COIN_REPOSITORY=PATH
-  sh ./custom_scripts/moneta_testnet/init.sh $PATH_TO_MONETA_COIN_REPOSITORY account_name node_name
-  sh ./custom_scripts/moneta_testnet/copy_configs.sh $PATH_TO_MONETA_COIN_REPOSITORY
-  sh ./custom_scripts/moneta_testnet/moneta_up.sh $PATH_TO_MONETA_COIN_REPOSITORY
+  export NETWORK_TYPE=moneta_mainnet/moneta_testnet
+  sh ./custom_scripts/$NETWORK_TYPE/init.sh $PATH_TO_MONETA_COIN_REPOSITORY account_name node_name
+  sh ./custom_scripts/$NETWORK_TYPE/copy_configs.sh $PATH_TO_MONETA_COIN_REPOSITORY
+  sh ./custom_scripts/$NETWORK_TYPE/moneta_up.sh $PATH_TO_MONETA_COIN_REPOSITORY
 ```
 
 ## Creating daemon service
@@ -61,7 +62,7 @@ with:
   Environment="DAEMON_HOME=/root/.moneta"
   User=root
   ExecStart={RENAME-THIS-TO-PATH-TO-MONETA-COIN-REPOSITORY}/cosmovisor/cosmovisor start
-  WorkingDirectory={RENAME-THIS-TO-PATH-TO-MONETA-COIN-REPOSITORY}/custom_scripts/moneta_testnet
+  WorkingDirectory={RENAME-THIS-TO-PATH-TO-MONETA-COIN-REPOSITORY}/custom_scripts/{RENAME-TO-NETWORK-TYPE}
   StandardOutput=file:/var/log/monetad/monetad.log
   StandardError=file:/var/log/monetad/monetad_error.log
   Restart=always
