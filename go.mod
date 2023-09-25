@@ -28,7 +28,7 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	github.com/lib/pq v1.10.2 // indirect
 	github.com/magiconair/properties v1.8.5
-	github.com/mattn/go-isatty v0.0.14
+	github.com/mattn/go-isatty v0.0.19
 	github.com/onsi/ginkgo v1.16.4 // indirect
 	github.com/onsi/gomega v1.13.0 // indirect
 	github.com/otiai10/copy v1.6.0
@@ -37,7 +37,7 @@ require (
 	github.com/prometheus/common v0.29.0
 	github.com/rakyll/statik v0.1.7
 	github.com/regen-network/cosmos-proto v0.3.1
-	github.com/rs/zerolog v1.23.0
+	github.com/rs/zerolog v1.31.0
 	github.com/spf13/cast v1.3.1
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/pflag v1.0.5
